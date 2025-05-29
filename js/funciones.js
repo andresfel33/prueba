@@ -17,7 +17,18 @@ function agregarcontacto(idusuario,nombre,tel,email){
  				}
 	});
 }
-
+function filtrarTabla(){
+    let name = document.getElementById('name').value.toLowerCase();
+	let correo = document.getElementById('correo').value.toLowerCase();
+    let filas = document.querySelectorAll('tbody tr');
+    filas.forEach((fila) => {
+        let celdas = fila.getElementsByTagName('td');
+        let mostrarFila = true;
+        if (celdas[0].innerText.toLowerCase().indexOf(name) === -1) mostrarFila = false;
+		if (celdas[2].innerText.toLowerCase().indexOf(correo) === -1) mostrarFila = false;
+        fila.style.display = mostrarFila ? '' : 'none';
+    });
+}
 function actualizarcontacto(){
 				id=$('#idcontactoA').val();
 				nombre=$('#nombreA').val();
