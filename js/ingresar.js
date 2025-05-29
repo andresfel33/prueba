@@ -11,13 +11,10 @@ document.addEventListener('DOMContentLoaded', function () {
  				url:"controler/validaringreso.php", 
  				data: { usuario: usuario, pass: pass },
  				success:function(r){
-                    console.log(r);
  					if(r === 'success'){
-                        console.log(r);
  						window.location.href = 'view/contactos.php';
  					}else{
  						alertify.error ("error en el servidor :( ");
-                        console.log(r);
  					}
  				}
 	});
